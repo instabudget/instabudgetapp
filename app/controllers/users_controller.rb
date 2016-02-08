@@ -29,7 +29,8 @@ class UsersController < ApplicationController
       # UserMailer.account_activation(@user).deliver_now
       # after factured
       @user.send_activation_email
-      flash[:info] = 'Please check your email to activate your account'
+      flash[:info] = 'Account opened successfuly. Please check your email within
+                      1 to 2 Minutes to activate your account'
       redirect_to root_url
     else
       render 'new'
