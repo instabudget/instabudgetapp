@@ -1,0 +1,13 @@
+michael:
+  name: michael Example
+  email: michael@gmail.com
+  password_digest: <%= User.digest('password')  %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+archer:
+  name: Sterling Archer
+  email: duches@example.com
+  password_digest: <%= User.digest('password')  %>
+  activated: true
+  activated_at: <%= Time.zone.now %>

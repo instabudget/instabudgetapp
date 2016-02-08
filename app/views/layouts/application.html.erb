@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= full_title(yield(:title)) %></title>
+      <%= stylesheet_link_tag 'application', media: 'all',
+        'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application',
+        'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+
+<!-- this calls a code in layouts/shim folder to help old browsers understand -->
+      <%= render 'layouts/shim' %>
+  </head>
+  <body>
+<!-- this calls a code in layouts folder to render the header -->
+      <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+<!-- this calls a code in layouts folder to render the footer -->
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>
