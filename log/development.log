@@ -56,7 +56,7 @@ Migrations are pending. To resolve this issue, run:
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
 Migrating to CreateUsers (20151203200938)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (24.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[35m (24.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151203200938"]]
   [1m[35m (2.3ms)[0m  commit transaction
 Migrating to AddIndexToUserEmail (20151206220213)
@@ -83,7 +83,7 @@ Migrating to AddActivationToUsers (20160203123646)
   [1m[35m (1.5ms)[0m  commit transaction
 Migrating to ChangeActivated (20160203130141)
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar, "remember_digest" varchar, "activation_digest" varchar, "activated" boolean, "activated_at" datetime) 
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar, "remember_digest" varchar, "activation_digest" varchar, "activated" boolean, "activated_at" datetime)
   [1m[36m (0.1ms)[0m  [1m            SELECT sql
             FROM sqlite_master
             WHERE name='index_users_on_email' AND type='index'
@@ -313,7 +313,7 @@ Content-Transfer-Encoding: 7bit
 
 Hi Raed Tulefat,
 
-Welcome to the Sample App! Click on the link below to activate your account:
+Welcome to the InstaBudget! Click on the link below to activate your account:
 
 http://localhost:3000/account_activations/wyDugAIcgNURKlR9dy3n_Q/edit?email=tulefat%40gmail.com
 
@@ -325,12 +325,12 @@ Content-Transfer-Encoding: 7bit
 
 <html>
   <body>
-    <h1>Sample App</h1>
+    <h1>InstaBudget</h1>
 
 <p>Hi Raed Tulefat,</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+Welcome to the InstaBudget! Click on the link below to activate your account:
 </p>
 
 <a href="http://localhost:3000/account_activations/wyDugAIcgNURKlR9dy3n_Q/edit?email=tulefat%40gmail.com">Activate</a>
@@ -453,3 +453,455 @@ Processing by UsersController#show as HTML
   Rendered layouts/_header.html.erb (1.6ms)
   Rendered layouts/_footer.html.erb (0.2ms)
 Completed 200 OK in 125ms (Views: 123.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 13:41:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 150ms (Views: 149.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 13:41:25 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 114ms (Views: 112.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 13:56:43 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 500 Internal Server Error in 2037ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...staBudget", root_url, id: "logo" );@output_buffer.safe_appen...
+...                               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <ul class="nav navbar-nav navbar-right">
+                    ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+      <ul class="nav navbar-nav navbar-right">
+                                      ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:6: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+      <ul class="nav navbar-nav navbar-right">
+                                             ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:8: syntax error, unexpected tCONSTANT, expecting ')'
+...t_buffer.append=( link_to "Home", root_url );@output_buffer....
+...                               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:9: syntax error, unexpected tCONSTANT, expecting ')'
+...t_buffer.append=( link_to "Help", help_url );@output_buffer....
+...                               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:10: syntax error, unexpected tCONSTANT, expecting ')'
+...buffer.append=( link_to "DigDig", '#' );@output_buffer.safe_...
+...                               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:12: syntax error, unexpected tCONSTANT, expecting ')'
+..._buffer.append=( link_to "Users", "#" );@output_buffer.safe_...
+...                               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:13: syntax error, unexpected '<', expecting ')'
+          <li class="dropdown">
+           ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:14: syntax error, unexpected '<'
+            <a href="#" class="dropdown-to...
+             ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:14: syntax error, unexpected keyword_class, expecting ')'
+            <a href="#" class="dropdown-toggle" data-toggl...
+                             ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:14: syntax error, unexpected tIDENTIFIER, expecting ')'
+...#" class="dropdown-toggle" data-toggle="dropdown">
+...                               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:15: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+              Account <b class="caret"></b>
+                              ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:15: syntax error, unexpected '<'
+              Account <b class="caret"></b>
+                                        ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:16: unknown regexp option - a
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:17: syntax error, unexpected '<'
+            <ul class="dropdown-menu">
+             ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:18: syntax error, unexpected '<'
+              <li>'.freeze;@output_buffer.ap...
+               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:19: unknown regexp option - l
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:20: syntax error, unexpected '<'
+              <li class="divider"></li>
+               ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:20: syntax error, unexpected '<'
+              <li class="divider"></li>
+                                   ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:23: unknown regexp option - l
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:24: syntax error, unexpected '<'
+            </ul>
+             ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:25: unknown regexp option - l
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:29: unknown regexp option - l
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:30: syntax error, unexpected '<'
+    </nav>
+     ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:31: unknown regexp options - dv
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+</header>
+ ^
+/Users/Raed/Sites/InstaBudget/app/views/layouts/_header.html.erb:32: unterminated regexp meets end of file):
+  app/views/layouts/_header.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/layouts/_header.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/layouts/_header.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+  app/views/layouts/_header.html.erb:6: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  app/views/layouts/_header.html.erb:8: syntax error, unexpected tCONSTANT, expecting ')'
+  app/views/layouts/_header.html.erb:9: syntax error, unexpected tCONSTANT, expecting ')'
+  app/views/layouts/_header.html.erb:10: syntax error, unexpected tCONSTANT, expecting ')'
+  app/views/layouts/_header.html.erb:12: syntax error, unexpected tCONSTANT, expecting ')'
+  app/views/layouts/_header.html.erb:13: syntax error, unexpected '<', expecting ')'
+  app/views/layouts/_header.html.erb:14: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:14: syntax error, unexpected keyword_class, expecting ')'
+  app/views/layouts/_header.html.erb:14: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/layouts/_header.html.erb:15: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+  app/views/layouts/_header.html.erb:15: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:16: unknown regexp option - a
+  app/views/layouts/_header.html.erb:17: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:18: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:19: unknown regexp option - l
+  app/views/layouts/_header.html.erb:20: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:20: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:23: unknown regexp option - l
+  app/views/layouts/_header.html.erb:24: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:25: unknown regexp option - l
+  app/views/layouts/_header.html.erb:29: unknown regexp option - l
+  app/views/layouts/_header.html.erb:30: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:31: unknown regexp options - dv
+  app/views/layouts/_header.html.erb:32: syntax error, unexpected '<'
+  app/views/layouts/_header.html.erb:32: unterminated regexp meets end of file
+  app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__4464890213075476681_70250625210380'
+
+
+  Rendered /Users/Raed/.rvm/gems/ruby-2.2.3/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (11.0ms)
+  Rendered /Users/Raed/.rvm/gems/ruby-2.2.3/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /Users/Raed/.rvm/gems/ruby-2.2.3/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Raed/.rvm/gems/ruby-2.2.3/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /Users/Raed/.rvm/gems/ruby-2.2.3/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (80.5ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 13:58:28 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 122.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2016-02-08 13:58:31 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 133ms (Views: 132.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/railsTemplate-8b52f7991332ed2b2129668dba1b73402031d031298cd5aa07ae0ed7af584a36.png" for ::1 at 2016-02-08 13:58:31 -0500
+
+
+Started GET "/" for ::1 at 2016-02-08 13:58:38 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 112ms (Views: 111.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2016-02-08 13:59:18 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 116ms (Views: 115.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/account_activations.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/password_resets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/custom.self-b27569367e02743fd1351a77a00c8fe7f54a472e3b16129269c5eae1e2bcbaa1.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/bootstrap.self-cdea7efeac1597b89ddd6fd86b0e8e0bec5d5fb1fac9c6e8a045f2c59eef2d13.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/account_activations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/assets/railsTemplate-8b52f7991332ed2b2129668dba1b73402031d031298cd5aa07ae0ed7af584a36.png" for ::1 at 2016-02-08 13:59:18 -0500
+
+
+Started GET "/" for ::1 at 2016-02-08 14:25:31 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 139ms (Views: 138.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/account_activations.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/password_resets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/custom.self-b27569367e02743fd1351a77a00c8fe7f54a472e3b16129269c5eae1e2bcbaa1.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/bootstrap.self-cdea7efeac1597b89ddd6fd86b0e8e0bec5d5fb1fac9c6e8a045f2c59eef2d13.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/account_activations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/assets/railsTemplate-8b52f7991332ed2b2129668dba1b73402031d031298cd5aa07ae0ed7af584a36.png" for ::1 at 2016-02-08 14:25:31 -0500
+
+
+Started GET "/" for ::1 at 2016-02-08 14:25:37 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 151ms (Views: 149.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-02-08 14:25:41 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 141ms (Views: 140.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/help" for ::1 at 2016-02-08 14:25:43 -0500
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 129ms (Views: 128.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/help" for ::1 at 2016-02-08 14:25:48 -0500
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 113ms (Views: 112.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 14:25:50 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 116.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-02-08 14:25:55 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 123ms (Views: 122.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 14:28:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 141ms (Views: 139.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-02-08 14:28:43 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 119ms (Views: 118.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/about" for ::1 at 2016-02-08 14:28:45 -0500
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 115ms (Views: 114.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/contact" for ::1 at 2016-02-08 14:28:58 -0500
+Processing by StaticPagesController#contact as HTML
+  Rendered static_pages/contact.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 122ms (Views: 121.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 14:29:10 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 119ms (Views: 116.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2016-02-08 14:29:15 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 102ms (Views: 100.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/help" for ::1 at 2016-02-08 14:29:16 -0500
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 110ms (Views: 109.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2016-02-08 14:29:17 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 119ms (Views: 118.9ms | ActiveRecord: 0.1ms)
